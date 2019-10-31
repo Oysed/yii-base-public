@@ -1,0 +1,108 @@
+2019-10-31 15:59:57 [-][-][-][error][yii\base\InvalidArgumentException] yii\base\InvalidArgumentException: Invalid path alias: @../public_html/ in D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\BaseYii.php:154
+Stack trace:
+#0 D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\console\controllers\ServeController.php(54): yii\BaseYii::getAlias('@../public_html...')
+#1 [internal function]: yii\console\controllers\ServeController->actionIndex('localhost')
+#2 D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#3 D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\console\Controller.php(164): yii\base\Controller->runAction('', Array)
+#5 D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\base\Module.php(528): yii\console\Controller->runAction('', Array)
+#6 D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('serve', Array)
+#7 D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('serve', Array)
+#8 D:\web\yii2\magaz\yii\vendor\yiisoft\yii2\base\Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#9 D:\web\yii2\magaz\yii\yii(23): yii\base\Application->run()
+#10 {main}
+2019-10-31 15:59:57 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'ACLOCAL_PATH' => '/mingw64/share/aclocal:/usr/share/aclocal'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\oysed\\AppData\\Roaming'
+    'COMMONPROGRAMFILES' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'DESKTOP-IDN8NJ7'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'CONFIG_SITE' => '/mingw64/etc/config.site'
+    'DISPLAY' => 'needs-to-be-defined'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'EXEPATH' => 'C:\\Program Files\\Git'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'GTK_BASEPATH' => 'C:\\Program Files (x86)\\GtkSharp\\2.12\\'
+    'HOME' => 'C:\\Users\\oysed'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\oysed'
+    'HOSTNAME' => 'DESKTOP-IDN8NJ7'
+    'INFOPATH' => '/usr/local/info:/usr/share/info:/usr/info:/share/info'
+    'LANG' => 'en_US.UTF-8'
+    'LOCALAPPDATA' => 'C:\\Users\\oysed\\AppData\\Local'
+    'LOGONSERVER' => '\\\\DESKTOP-IDN8NJ7'
+    'MANPATH' => '/mingw64/local/man:/mingw64/share/man:/usr/local/man:/usr/share/man:/usr/man:/share/man'
+    'MINGW_CHOST' => 'x86_64-w64-mingw32'
+    'MINGW_PACKAGE_PREFIX' => 'mingw-w64-x86_64'
+    'MINGW_PREFIX' => '/mingw64'
+    'MSYSTEM' => 'MINGW64'
+    'MSYSTEM_CARCH' => 'x86_64'
+    'MSYSTEM_CHOST' => 'x86_64-w64-mingw32'
+    'MSYSTEM_PREFIX' => '/mingw64'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OneDrive' => 'C:\\Users\\oysed\\OneDrive'
+    'OneDriveConsumer' => 'C:\\Users\\oysed\\OneDrive'
+    'ORIGINAL_PATH' => 'C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\oysed\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\PuTTY;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files\\Git\\cmd;C:\\Users\\oysed\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files (x86)\\Brackets\\php-7.3.10-nts-Win32-VC15-x64'
+    'ORIGINAL_TEMP' => '/tmp'
+    'ORIGINAL_TMP' => '/tmp'
+    'OS' => 'Windows_NT'
+    'PATH' => 'C:\\Users\\oysed\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\local\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\oysed\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\PuTTY;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files\\Git\\cmd;C:\\Users\\oysed\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files (x86)\\Brackets\\php-7.3.10-nts-Win32-VC15-x64;C:\\Program Files\\Git\\usr\\bin\\vendor_perl;C:\\Program Files\\Git\\usr\\bin\\core_perl'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PKG_CONFIG_PATH' => '/mingw64/lib/pkgconfig:/mingw64/share/pkgconfig'
+    'PLINK_PROTOCOL' => 'ssh'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 60 Stepping 3, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '3c03'
+    'ProgramData' => 'C:\\ProgramData'
+    'PROGRAMFILES' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PS1' => '\\[\\033]0;$TITLEPREFIX:$PWD\\007\\]\\n\\[\\033[32m\\]\\u@\\h \\[\\033[35m\\]$MSYSTEM \\[\\033[33m\\]\\w\\[\\033[36m\\]`__git_ps1`\\[\\033[0m\\]\\n$ '
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PWD' => '/d/web/yii2/magaz/yii'
+    'SESSIONNAME' => 'Console'
+    'SHELL' => 'C:\\Program Files\\Git\\usr\\bin\\bash.exe'
+    'SHLVL' => '1'
+    'SSH_ASKPASS' => '/mingw64/libexec/git-core/git-gui--askpass'
+    'SYSTEMDRIVE' => 'C:'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'TEMP' => 'C:\\Users\\oysed\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\oysed\\AppData\\Local\\Temp'
+    'TMPDIR' => 'C:\\Users\\oysed\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'DESKTOP-IDN8NJ7'
+    'USERDOMAIN_ROAMINGPROFILE' => 'DESKTOP-IDN8NJ7'
+    'USERNAME' => 'oysed'
+    'USERPROFILE' => 'C:\\Users\\oysed'
+    'VBOX_MSI_INSTALL_PATH' => 'C:\\Program Files\\Oracle\\VirtualBox\\'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'WINDIR' => 'C:\\WINDOWS'
+    '_' => '/usr/bin/winpty'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1572537597.1495
+    'REQUEST_TIME' => 1572537597
+    'argv' => [
+        0 => 'yii'
+        1 => 'serve'
+        2 => '--docroot=@../public_html/'
+        3 => '--port=8080'
+    ]
+    'argc' => 4
+]

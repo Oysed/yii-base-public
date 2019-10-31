@@ -1,0 +1,65 @@
+2019-10-31 14:07:51 [::1][-][6b9o1715ner22e98pj4kdqabg1][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "3Dsite/ve=rify-email". in D:\web\yii2\magaz\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 D:\web\yii2\magaz\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('3Dsite/ve=rify-...', Array)
+#1 D:\web\yii2\magaz\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\web\yii2\magaz\backend\web\index.php(17): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\web\yii2\magaz\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\web\yii2\magaz\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\web\yii2\magaz\backend\web\index.php(17): yii\base\Application->run()
+#2 {main}
+2019-10-31 14:07:51 [::1][-][6b9o1715ner22e98pj4kdqabg1][info][application] $_GET = [
+    'r' => '3Dsite/ve=rify-email'
+    'amp;token' => '3DoSw-Z1I1VozpxwmPnuO-HtK5p1dozaL9_1572530714'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-frontend' => '0k30uog9us592r97pchqdq6tgc'
+    'PHPSESSID' => 'lfafnd2kj4p1c6nah6stfkq21d'
+    '_identity' => '98212d49502c39c5e4c5441df1645357702abc71e3932bccea7fd57152375aa3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"qT5gFWCJc5RjB03c8KWBeFeJapLwWWBP\",2592000]\";}'
+    '_csrf' => 'cb2110676d8a2385160da9e4a08600fe45dbc7fd8a567f306425bd5c88519e94a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"s_rs7hkt_wLgkHEgSmYKCvPEkpqogsUo\";}'
+    '_csrf-frontend' => 'cd22812b0f20ba503bbdd790cda9dde330d3994c397e2028cc2938c983627df0a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"WIvKslkRhFS83tjfWIGSWRAmXRrAywHV\";}'
+    'advanced-backend' => '6b9o1715ner22e98pj4kdqabg1'
+    '_csrf-backend' => 'f17d8909d77800654f4820b311888b69d7c2ae6a434b148e19a636dd709bcf70a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"8Pe7QknmwBz-JyQa3TmG44GnOF5iTwc-\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8080/index.php'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\web\\yii2\\magaz\\backend\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '5266'
+    'SERVER_SOFTWARE' => 'PHP 7.3.10 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=3Dsite%2Fve=rify-email&amp;token=3DoSw-Z1I1VozpxwmPnuO-HtK5p1dozaL9_1572530714'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\web\\yii2\\magaz\\backend\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=3Dsite%2Fve=rify-email&amp;token=3DoSw-Z1I1VozpxwmPnuO-HtK5p1dozaL9_1572530714'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_DNT' => '1'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,ru;q=0.8'
+    'HTTP_COOKIE' => 'advanced-frontend=0k30uog9us592r97pchqdq6tgc; PHPSESSID=lfafnd2kj4p1c6nah6stfkq21d; _identity=98212d49502c39c5e4c5441df1645357702abc71e3932bccea7fd57152375aa3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22qT5gFWCJc5RjB03c8KWBeFeJapLwWWBP%22%2C2592000%5D%22%3B%7D; _csrf=cb2110676d8a2385160da9e4a08600fe45dbc7fd8a567f306425bd5c88519e94a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22s_rs7hkt_wLgkHEgSmYKCvPEkpqogsUo%22%3B%7D; _csrf-frontend=cd22812b0f20ba503bbdd790cda9dde330d3994c397e2028cc2938c983627df0a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22WIvKslkRhFS83tjfWIGSWRAmXRrAywHV%22%3B%7D; advanced-backend=6b9o1715ner22e98pj4kdqabg1; _csrf-backend=f17d8909d77800654f4820b311888b69d7c2ae6a434b148e19a636dd709bcf70a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%228Pe7QknmwBz-JyQa3TmG44GnOF5iTwc-%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1572530871.4492
+    'REQUEST_TIME' => 1572530871
+]

@@ -1,0 +1,234 @@
+Пошаговая установка Yii2 Advanced через Composer
+Данный конфиг тестировался на Yii 2.0.29 php 7.3.10 sqlite windows 10 Pro 64-bit
+---------------------------------------------------------------------------------------------------
+Поблагодарить автора
+Yandex 		410014659858888
+Webmoney	R632174171379
+Webmoney	Z943635049232
+---------------------------------------------------------------------------------------------------
+https://yiiframework.com/extension/yiisoft/yii2-app-advanced/doc/guide/2.0/en/structure-directories
+---------------------------------------------------------------------------------------------------
+Скачиваем php
+---------------------------------------------------------------------------------------------------
+Скачиваем Git
+---------------------------------------------------------------------------------------------------
+Скачиваем SQLiteStudio
+---------------------------------------------------------------------------------------------------
+Скачиваем Composer https://getcomposer.org/download/
+---------------------------------------------------------------------------------------------------
+Скачиваем Composer-asset " php composer global require "fxp/composer-asset-plugin:^1.4.1" "
+---------------------------------------------------------------------------------------------------
+Устанавливаем Yii2 Advanced " php composer create-project --prefer-dist yiisoft/yii2-app-advanced yii-application "
+---------------------------------------------------------------------------------------------------
+Запускам инициализацию yii.bat
+---------------------------------------------------------------------------------------------------
+Создаём базу данных в SQLiteStudio кладём в common/config/db.db и прописываем базу данных в yii_base/common/config/main-local.php
+---------------------------------------------------------------------------------------------------
+<?php
+return [
+    'components' => [
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'sqlite:'.__DIR__ . '/db.db',
+            'username' => '',
+            'password' => '',
+            'charset' => 'utf8',
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure a transport
+            // for the mailer to send real emails.
+            'useFileTransport' => true,
+        ],
+    ],
+];
+---------------------------------------------------------------------------------------------------
+Запускаем миграцию для сооздания таблицы пользователей ./yii migrate
+Проверяем базу данных на наличие новых данных
+
+Запуск yii осуществляется командой 
+php yii serve --docroot=@frontend/web --port=8080
+php yii serve --docroot=@backend/web --port=8081
+
+Копируем папку mail из common/mail в frontend/mail
+
+Редактируем файл yii_base/common/config/main-local.php добавляем данные для отправки почты
+---------------------------------------------------------------------------------------------------
+<?php
+return [
+    'components' => [
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'sqlite:'.__DIR__ . '/db.db',
+            'username' => '',
+            'password' => '',
+            'charset' => 'utf8',
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'localhost',
+                'username' => 'mail@mail.com',
+                'password' => 'password',
+                'port' => '587',
+                'encryption' => 'tls'
+                ],
+        ],
+    ],
+];
+---------------------------------------------------------------------------------------------------
+Теперь можно регистрировать пользователя и обязательно активировать аккаунт через ссылку из почты
+
+Для генерации форм используем gii /index.php?r=gii
+Для быстрого доступа к gii добавим пункт на панель frontend/views/layouts/main.php
+['label' => 'Gii', 'url' => ['/gii']],
+https://www.yiiframework.com/doc/guide/2.0/en/start-gii
+---------------------------------------------------------------------------------------------------
+Доведём до ума для установки на хостинг файловую структуру
+Создаём папку public_html и переносим туда файлы из папки frontend/web
+Создаём папку public_html/admin и переносим туда файлы из папки backend/web
+Создаём папку yii_base и переносим туда все файлы и папки проекта
+Открываем файл public_html/index.php и меняем пути
+---------------------------------------------------------------------------------------------------
+<?php
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+
+require __DIR__ . '/../yii_base/vendor/autoload.php';
+require __DIR__ . '/../yii_base/vendor/yiisoft/yii2/Yii.php';
+require __DIR__ . '/../yii_base/common/config/bootstrap.php';
+require __DIR__ . '/../yii_base/frontend/config/bootstrap.php';
+
+$config = yii\helpers\ArrayHelper::merge(
+    require __DIR__ . '/../yii_base/common/config/main.php',
+    require __DIR__ . '/../yii_base/common/config/main-local.php',
+    require __DIR__ . '/../yii_base/frontend/config/main.php',
+    require __DIR__ . '/../yii_base/frontend/config/main-local.php'
+);
+
+(new yii\web\Application($config))->run();
+---------------------------------------------------------------------------------------------------
+Открываем файл public_html/admin/index.php и меняем пути
+---------------------------------------------------------------------------------------------------
+<?php
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+
+require __DIR__ . '/../../yii_base/vendor/autoload.php';
+require __DIR__ . '/../../yii_base/vendor/yiisoft/yii2/Yii.php';
+require __DIR__ . '/../../yii_base/common/config/bootstrap.php';
+require __DIR__ . '/../../yii_base/backend/config/bootstrap.php';
+
+$config = yii\helpers\ArrayHelper::merge(
+    require __DIR__ . '/../../yii_base/common/config/main.php',
+    require __DIR__ . '/../../yii_base/common/config/main-local.php',
+    require __DIR__ . '/../../yii_base/backend/config/main.php',
+    require __DIR__ . '/../../yii_base/backend/config/main-local.php'
+);
+
+(new yii\web\Application($config))->run();
+---------------------------------------------------------------------------------------------------
+Проверяем работу приложения запуская сеервер из корня yii_base
+php yii serve --docroot=../public_html/ --port=8080
+php yii serve --docroot=../public_html/admin --port=8081
+
+Включаем RBAC на основе DB (Фильтры контроля доступа) добавляем в конфиг yii_base/common/config/main.php
+---------------------------------------------------------------------------------------------------
+$config = [
+    //..
+    'components' => [
+        //..
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'cache' => 'cache' //Включаем кеширование 
+        ],
+    ]
+    //..
+];
+---------------------------------------------------------------------------------------------------
+Выполняем миграцию новых таблиц в базу данных
+php yii migrate --migrationPath=@yii/rbac/migrations
+---------------------------------------------------------------------------------------------------
+Создаём консольную команду в yii_base\console\controllers\RbacController.php
+https://www.yiiframework.com/doc/guide/2.0/ru/tutorial-console#create-command
+---------------------------------------------------------------------------------------------------
+<?php
+namespace console\controllers;
+
+use Yii;
+use yii\console\Controller;
+
+class RbacController extends Controller
+{
+    public function actionInit()
+    {
+        $auth = Yii::$app->authManager;
+
+        // добавляем разрешение "createPost"
+        $createPost = $auth->createPermission('createPost');
+        $createPost->description = 'Create a post';
+        $auth->add($createPost);
+
+        // добавляем разрешение "updatePost"
+        $updatePost = $auth->createPermission('updatePost');
+        $updatePost->description = 'Update post';
+        $auth->add($updatePost);
+
+        // добавляем роль "author" и даём роли разрешение "createPost"
+        $author = $auth->createRole('author');
+        $auth->add($author);
+        $auth->addChild($author, $createPost);
+
+        // добавляем роль "admin" и даём роли разрешение "updatePost"
+        // а также все разрешения роли "author"
+        $admin = $auth->createRole('admin');
+        $auth->add($admin);
+        $auth->addChild($admin, $updatePost);
+        $auth->addChild($admin, $author);
+
+        // Назначение ролей пользователям. 1 и 2 это IDs возвращаемые IdentityInterface::getId()
+        // обычно реализуемый в модели User.
+        $auth->assign($author, 2); //внимание на id в базе данных
+        $auth->assign($admin, 1); //внимание на id в базе данных
+    }
+}
+---------------------------------------------------------------------------------------------------
+Выполняем php yii rbac/init  и провееряем базу данных, должны появиться author,admin,createPost,updatePost
+Будьте внимательны, роли присваиваются по id пользователя в базе данных они должны совпадать с id в консольной команде
+Теперь можно проверить на index странице в контроллере yii_base/frontend/controllers/SiteController.php
+Добавим
+---------------------------------------------------------------------------------------------------
+public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index',' logout', 'signup'],
+                'rules' => [
+                    [
+                        'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+					[
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ]
+                ],
+            ],
+        ];
+    }
+---------------------------------------------------------------------------------------------------
+И теперь на главную страницу index имеет доступ только admin
+С дополнительными возможностями можно ознакомиться на официальном сайте
+https://www.yiiframework.com/doc/guide/2.0/ru/security-authorization
+---------------------------------------------------------------------------------------------------
